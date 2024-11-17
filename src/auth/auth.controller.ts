@@ -15,7 +15,7 @@ export class AuthController {
     return this.authService.registerUser(registerUserDto);
   }
   @MessagePattern('auth.verify.user')
-  async verifyUser() {
-    return this.authService.verifyToken();
+  async verifyUser(@Payload() token: string) {
+    return this.authService.verifyToken(token);
   }
 }
